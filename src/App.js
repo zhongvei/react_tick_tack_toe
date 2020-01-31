@@ -16,13 +16,12 @@ const App = () => {
     }
 
     //id
-    const newArray = [...board];
+    let newArray = [...board];
 
     const getID = (e) => {
         if (board[e.target.id] === "") {
             // board[e.target.id] = player;
             newArray[e.target.id] = player;
-            console.log(newArray)
             setBoard(newArray)
 
         } else {
@@ -78,10 +77,18 @@ const App = () => {
         }
     }
 
+    //replay
+    const restart = () => {
+        let newArray = ['', '', '', '', '', '', '', '', ''];
+        setBoard(newArray);
+        setPlayer("X");
+        setWinner("");
+    }
+
     return (
         <div className="body">
+            <Display winner={winner} player={player} />
             <div className="container">
-                <Display winner={winner} player={player} />
                 <div className="box">
                     {
                         board.map((value, index) => {
@@ -94,7 +101,11 @@ const App = () => {
                     }
                 </div>
             </div>
-
+            <div className="button">
+                <button onClick={restart}>
+                    restart
+                </button>
+            </div>
         </div>
     )
 }
