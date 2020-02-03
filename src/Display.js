@@ -11,7 +11,7 @@ const Display = ({ winner, player }) => {
         )
     } else if (winner !== "") {
         return (
-            < div className="content" >
+            < div className="content yay" >
                 <p>
                     {winner}
                 </p>

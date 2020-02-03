@@ -43,13 +43,24 @@
 }
 
 .content {
-  width: 100%;
+  width: 50%;
+  margin: 0 auto;
   font-size: 3em;
   display: flex;
   align-items: center;
   color: whitesmoke;
   display: flex;
   justify-content: center;
+
+}
+
+.yay {
+  animation: enlarge 2s alternate infinite;
+}
+
+@keyframes enlarge {
+  0% {transform: scale(1,1);}
+  100%{transform: scale(1.5,1.5);}
 }
 
 p{
@@ -61,25 +72,34 @@ p{
   width: 100%;
   display: flex;
   justify-content: center;
+  
 }
 
 button{
   height: 40px;
   width: auto;
   padding: 0 60px;
+  outline: none;
   font-size: 1.7em;
   cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+button:hover {
+  animation: jump ease-in-out 0.5s ;
+}
+
+button:active {
+  transform: translate(0,6px);
+  box-shadow: 0 5px rgba(153, 153, 153, 0.253); 
+  background-color: rgb(248, 44, 8);
 }
 
 
 
-button:checked {
-  animation: changeColor 1s ease-in-out forwards ;
-}
-
-@keyframes changeColor {
-  0% {background-color: white;}
-  25% {background-color: rgb(245, 76, 47);}
-  50% {background-color: rgb(247, 64, 31);}
-  100% {background-color: rgb(248, 44, 8);}
+@keyframes jump {
+  0% {transform: translate(0,0);}
+  100% {transform: translate(0,-4px);}
 }
